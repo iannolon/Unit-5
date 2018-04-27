@@ -4,11 +4,12 @@
 
 from datetime import *
 dotw = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] #dotw = days of the week
-weekday = dotw[today.weekday()]
+moty = ['January','February','March','April','May','June','July','August','September','October','November','December'] #moty = months of the year
 today = date.today()
+weekday = dotw[today.weekday()]
+month = today.month
+month = moty[month-1]
 day = today.day
 year = today.year
 
-
-month = today.month
 print('Today is',weekday,',',month,day,year)
