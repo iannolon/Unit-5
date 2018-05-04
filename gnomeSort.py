@@ -1,24 +1,30 @@
 #IanNolon
 #5/1/18
 #gnomeSort.py - also known as stupid sort
+'''
+Gnome Sort is based on the technique used by the standard Dutch Garden Gnome.
+Here is how a garden gnome sorts a line of flower pots. 
+Basically, he looks at the flower pot next to him and the previous one; 
+if they are in the right order he steps one pot forward, 
+otherwise he swaps them and steps one pot backwards. 
+Boundary conditions: if there is no previous pot, he steps forwards; 
+if there is no pot next to him, he is done.
+'''
 
 from random import randint
 from time import time
 
-N = 10 #how many numbers will be sorted
+N = 1000 #how many numbers will be sorted
 
 def mySort(A):
-    '''
-    procedure optimizedGnomeSort(a[]):
-    for pos in 1 to length(a):
-        gnomeSort(a, pos)
-
-procedure gnomeSort(a[], upperBound):
-    pos := upperBound
-    while pos > 0 and a[pos-1] > a[pos]:
-        swap a[pos-1] and a[pos]
-        pos := pos - 1
-    '''
+    pos = 0
+    temp = 0
+    while pos < len(numbers):
+        if (pos == 0 or numbers[pos] >= numbers[pos-1]):
+            pos += 1
+        else:
+            numbers[pos],numbers[pos-1] = numbers[pos-1],numbers[pos]
+            pos -= 1
     return A
     
 if __name__ == '__main__':
@@ -27,7 +33,6 @@ if __name__ == '__main__':
     numbers = [0]*N
     for i in range(N):
         numbers[i] = randint(1,N)
-    
     pythonSort = sorted(numbers) #Python's sort
     
     #time how long your sort takes
